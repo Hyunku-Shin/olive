@@ -29,5 +29,4 @@ $ npm run dev
 ```
 "# my-chatbot" 
 "# olive" 
-"# olive" 
-"# olive" 
+

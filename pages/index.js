@@ -9,7 +9,7 @@ export default function Home() {
 
   //set the first message on load
   useEffect(() => {
-    setMessages([{ name: 'AI', message: getGreeting() }])
+    setMessages([{ name: 'Dr.Lee', message: getGreeting() }])
   }, [0])
 
   //scroll to the bottom of the chat for new messages
@@ -40,7 +40,7 @@ export default function Home() {
       const newMessages = [
         ...prevMessages,
         { name: '나', message: chatInput },
-        { name: 'AI', message: '' },
+        { name: 'Dr.Lee', message: '' },
       ]
       return newMessages
     })
@@ -63,14 +63,17 @@ export default function Home() {
       return
     }
 
-    const data = response.body
-    if (!data) {
-      return
-    }
+    const data = await response.json();
 
-    const reader = data.getReader()
-    const decoder = new TextDecoder()
-    let done = false
+    setMessages((prevMessages) => {
+      const newMessages = [
+        ...prevMessages,
+        { name: 'AI', message: data.message },
+      ];
+      return newMessages;
+    });
+
+
 
     //stream in the response
     while (!done) {
@@ -117,7 +120,7 @@ export default function Home() {
         }
       `}</style>
       <Head>
-        <title>올리브치과 AI-bot</title>
+        <title>올리브서울치과</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -136,7 +139,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.icon}></div>
 
-        <h3>올리브치과 AI-bot</h3>
+        <h3>올리브서울치과 AI bot</h3>
         <div className={styles.chat}>
           <div className={styles.chatDisplay}>
             {messageElements}
