@@ -1,6 +1,6 @@
 .main {
   font-family: 'Comic Mono', sans-serif;
-  background: url('/images/dental_clinic.jpg') no-repeat center center;
+  background: url('/images/dental_clinic.png') no-repeat center center;
   background-size: cover;
   color: #ffffff;
   height: 100%;
@@ -21,7 +21,7 @@
 }
 
 .main .icon {
-  background-image: url('/images/caroline.jpg');
+  background-image: url('/images/caroline.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
