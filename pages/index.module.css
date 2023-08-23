@@ -1,7 +1,11 @@
 .main {
   font-family: 'Comic Mono', sans-serif;
 <<<<<<< HEAD
+<<<<<<< HEAD
   background: url('/images/dental_clinic.png') no-repeat center center;
+=======
+  background: url('/images/dental_clinic.jpg') no-repeat center center;
+>>>>>>> parent of 256143b (last-version)
   background-size: cover;
 =======
 
@@ -27,10 +31,14 @@
 
 .main .icon {
 <<<<<<< HEAD
+<<<<<<< HEAD
   background-image: url('/images/caroline.png');
 =======
   background-image: url('/images/dev-devil.png');
 >>>>>>> parent of e9e3b89 (first commit)
+=======
+  background-image: url('/images/caroline.jpg');
+>>>>>>> parent of 256143b (last-version)
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
