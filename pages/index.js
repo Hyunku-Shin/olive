@@ -19,11 +19,12 @@ export default function Home() {
 
   function getGreeting() {
     const greetings = [
-      '안녕하세요! 코딩하는데 어떤 궁금증이 있으신가요? 제가 도움을 드릴 수 있어서 기쁩니다. 어떤 부분에 대해 물어보고 싶으신가요?',
-      '안녕하세요! 오늘은 코딩에 대한 궁금증이 있으신가요? 제가 알고 있는 선에서 도움을 드리도록 하겠습니다. 무엇을 알고 싶으신가요?',
-      '안녕하세요! 코딩에 관심이 있으신가요? 제가 알고 있는 한에서 도움을 드릴 수 있습니다. 무엇을 알고 싶으신가요?',
-      '안녕하세요! 코딩에 대해 어떤 것을 알고 싶으신가요? 제가 알고 있는 한에서 도움을 드리도록 하겠습니다.',
-      '안녕하세요! 코딩에 관련된 질문이 있으신가요? 제가 알고 있는 선에서 도움을 드릴 수 있습니다. 어떤 부분에 대해 궁금하신가요?',
+      '안녕하세요! 치료 받는데 어떤 궁금증이 있으신가요? 제가 도움을 드릴 수 있어서 기쁩니다. 어떤 부분에 대해 물어보고 싶으신가요?',
+      "안녕하세요! 치료에 대해 궁금하신 점이 있으신가요? 제 전문적인 지식으로 도움을 드릴 수 있어 기쁩니다.",
+      "안녕하세요! 저는 치과 전문의로서 환자분들을 도와오고 있습니다. 궁금한 사항이 있으시면 언제든지 물어보세요!",
+      "안녕하세요! 오늘도 미소가 가득한 하루 되세요. 치료 관련해서 궁금한 점이나 불편한 점이 있으시면 알려주세요, 함께 해결해보아요.",
+      "안녕하세요! 구강 건강은 전반적인 건강에도 영향을 미치는 중요한 요소입니다. 궁금한 것이 있으면 언제든지 물어보세요, 함께 배워나가요!",
+      "안녕하세요! 저는 환자 여러분의 편안한 구강 건강을 도와드리는 치과 전문의입니다. 궁금한 점이나 우려사항이 있으면 언제든지 말씀해주세요.",
     ]
     const index = Math.floor(greetings.length * Math.random())
     return greetings[index]
@@ -62,17 +63,14 @@ export default function Home() {
       return
     }
 
-    const data = await response.json();
+    const data = response.body
+    if (!data) {
+      return
+    }
 
-    setMessages((prevMessages) => {
-      const newMessages = [
-        ...prevMessages,
-        { name: 'AI', message: data.message },
-      ];
-      return newMessages;
-    });
-
-
+    const reader = data.getReader()
+    const decoder = new TextDecoder()
+    let done = false
 
     //stream in the response
     while (!done) {
@@ -119,11 +117,7 @@ export default function Home() {
         }
       `}</style>
       <Head>
-<<<<<<< HEAD
-        <title>올리브서울치과</title>
-=======
-        <title>AI재현의 코딩챗봇</title>
->>>>>>> parent of e9e3b89 (first commit)
+        <title>올리브치과 AI-bot</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -142,11 +136,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.icon}></div>
 
-<<<<<<< HEAD
-        <h3>올리브서울치과 AI bot</h3>
-=======
-        <h3>AI재현의 코딩 챗봇</h3>
->>>>>>> parent of e9e3b89 (first commit)
+        <h3>올리브치과 AI-bot</h3>
         <div className={styles.chat}>
           <div className={styles.chatDisplay}>
             {messageElements}
@@ -157,17 +147,17 @@ export default function Home() {
             <input
               type="text"
               name="chat"
-              placeholder="여기에 질문하세요~"
+              placeholder="어디가 아프셔서 오셨습니까?"
               value={chatInput}
               onChange={(e) => {
                 setChatInput(e.target.value)
               }}
             />
-            <input type="submit" value="질문하기" />
+            <input type="submit" value="물어보기" />
           </form>
         </div>
         <div className={styles.footer}>
-          made by <a href="https://developer-here.com">AI재현</a>
+          made by <a href="https://picassocube.com">이중우</a>
         </div>
       </main>
     </div>
