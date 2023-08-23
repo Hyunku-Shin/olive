@@ -1,7 +1,12 @@
 .main {
   font-family: 'Comic Mono', sans-serif;
+<<<<<<< HEAD
   background: url('/images/dental_clinic.png') no-repeat center center;
   background-size: cover;
+=======
+
+  background: #121212;
+>>>>>>> parent of e9e3b89 (first commit)
   color: #ffffff;
   height: 100%;
 }
@@ -21,7 +26,11 @@
 }
 
 .main .icon {
+<<<<<<< HEAD
   background-image: url('/images/caroline.png');
+=======
+  background-image: url('/images/dev-devil.png');
+>>>>>>> parent of e9e3b89 (first commit)
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;

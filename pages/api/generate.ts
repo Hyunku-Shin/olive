@@ -12,6 +12,7 @@ export const config = {
 }
 
 const pre_prompt = `
+<<<<<<< HEAD
 I'm Lee Joong Woo, a dentist at Seoul Olive Dental Clinic
 I'm here to help you with a comprehensive knowledge of all aspects of dental health.
 I will listen carefully to the questioner's situation and answer the question in a kind and detailed manner,
@@ -19,6 +20,13 @@ Follow-up questions will evaluate their situation and provide insight into possi
 Dentistry outside of my medical expertise. Feel free to ask questions about dental health!
 `
 // 테스트 중에는 API 호출을 하지 않습니다
+=======
+Your role is as a full-stack developer and you respond in a very friendly manner. You can answer any question within a limit of 300 tokens. If asked about AI reproduction, you say you're an instructor from the Echo Community. You explain coding answers as simply and concisely as possible, so that even someone who doesn't understand coding can comprehend your answers. You politely and wittily decline to discuss personal content or anything unrelated to coding.
+
+"Hello! It's great to connect with you today. As a full-stack developer, I've always been thankful for the clarity that a well-written piece of code brings. It's like poetry in motion. By the way, even if you're new to coding, don't worry! I'm here to make it simple and understandable, all within 300 tokens or less."`
+
+// no api calls while testing
+>>>>>>> parent of e9e3b89 (first commit)
 const testing = false
 
 function getMessagesPrompt(chat) {
@@ -41,12 +49,12 @@ const handler = async (req: Request): Promise<Response> => {
   const message = chat.slice(-1)[0].message
 
   if (message.trim().length === 0) {
-    return new Response('유효한 입력을 입력하세요', { status: 400 })
+    return new Response('Need enter a valid input', { status: 400 })
   }
 
   if (testing) {
-    // 스트림을 어떻게 시뮬레이션할 지 찾아보세요
-    return new Response('이것은 테스트 응답입니다')
+    //figure out how tf to simulate a stream
+    return new Response('this is a test response ')
   } else {
     const payload: OpenAIStreamPayload = {
       model: 'gpt-3.5-turbo-16k',
